@@ -1,4 +1,4 @@
-const Header = (props) => {
+const Header = props => {
   return (
     <>
       <h1>{props.course}</h1>
@@ -6,19 +6,27 @@ const Header = (props) => {
   )
 }
 
-const Content = (props) => {
-  const content = props.content;
-  console.log(content)
+const Part = props => {
   return (
     <>
-      <p>{content[0].part} {content[0].exercise}</p>
-      <p>{content[1].part} {content[1].exercise}</p>
-      <p>{content[2].part} {content[2].exercise}</p>
+      <p>{props.part} {props.exercise}</p>
     </>
   )
 }
 
-const Total = (props) => {
+const Content = props => {
+  const content = props.content;
+  console.log(content)
+  return (
+    <>
+      <Part part={content[0].part} exercise={content[0].exercise} />
+      <Part part={content[1].part} exercise={content[1].exercise} />
+      <Part part={content[2].part} exercise={content[2].exercise} />
+    </>
+  )
+}
+
+const Total = props => {
   const exercises = props.exercises
   console.log(exercises)
   return (
